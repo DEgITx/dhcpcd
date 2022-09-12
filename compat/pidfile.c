@@ -109,6 +109,10 @@ pidfile_cleanup(void)
 	pidfile_clean();
 }
 
+#ifndef _PATH_VARRUN
+# define _PATH_VARRUN "/mnt/shm/"
+#endif
+
 /* Constructs a name for a pidfile in the default location (/var/run).
  * If 'bname' is NULL, uses the name of the current program for the name of
  * the pidfile.

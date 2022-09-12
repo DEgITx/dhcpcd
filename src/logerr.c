@@ -75,30 +75,30 @@ static struct logctx _logctx = {
 #if defined(__linux__)
 /* Poor man's getprogname(3). */
 static char *_logprog;
-static const char *
-getprogname(void)
-{
-	const char *p;
+// static const char *
+// getprogname(void)
+// {
+// 	const char *p;
 
-	/* Use PATH_MAX + 1 to avoid truncation. */
-	if (_logprog == NULL) {
-		/* readlink(2) does not append a NULL byte,
-		 * so zero the buffer. */
-		if ((_logprog = calloc(1, PATH_MAX + 1)) == NULL)
-			return NULL;
-		if (readlink("/proc/self/exe", _logprog, PATH_MAX + 1) == -1) {
-			free(_logprog);
-			_logprog = NULL;
-			return NULL;
-		}
-	}
-	if (_logprog[0] == '[')
-		return NULL;
-	p = strrchr(_logprog, '/');
-	if (p == NULL)
-		return _logprog;
-	return p + 1;
-}
+// 	/* Use PATH_MAX + 1 to avoid truncation. */
+// 	if (_logprog == NULL) {
+// 		/* readlink(2) does not append a NULL byte,
+// 		 * so zero the buffer. */
+// 		if ((_logprog = calloc(1, PATH_MAX + 1)) == NULL)
+// 			return NULL;
+// 		if (readlink("/proc/self/exe", _logprog, PATH_MAX + 1) == -1) {
+// 			free(_logprog);
+// 			_logprog = NULL;
+// 			return NULL;
+// 		}
+// 	}
+// 	if (_logprog[0] == '[')
+// 		return NULL;
+// 	p = strrchr(_logprog, '/');
+// 	if (p == NULL)
+// 		return _logprog;
+// 	return p + 1;
+// }
 #endif
 
 #ifndef SMALL

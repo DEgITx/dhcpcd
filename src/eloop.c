@@ -55,6 +55,10 @@
  * Taking this all into account, ppoll(2) is the default mechanism used here.
  */
 
+#ifndef __arraycount
+#  define __arraycount(__x)       (sizeof(__x) / sizeof(__x[0]))
+#endif
+
 #if (defined(__unix__) || defined(unix)) && !defined(USG)
 #include <sys/param.h>
 #endif

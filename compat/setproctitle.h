@@ -35,16 +35,16 @@
 
 /* WEXITSTATUS is defined in stdlib.h which defines free() */
 #ifdef WEXITSTATUS
-static inline const char *
-getprogname(void)
-{
-	return "dhcpcd";
-}
-static inline void
-setprogname(char *name)
-{
-	free(name);
-}
+// inline const char *
+// getprogname(void)
+// {
+// 	return "dhcpcd";
+// }
+// inline void
+// setprogname(char *name)
+// {
+// 	free(name);
+// }
 #endif
 
 void setproctitle_init(int, char *[], char *[]);
