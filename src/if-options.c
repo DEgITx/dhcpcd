@@ -2687,9 +2687,6 @@ read_config(struct dhcpcd_ctx *ctx,
 		parse_config_line(ctx, ifname, ifo, option, line, &ldop, &edop);
 	}
 
-	// Crestron: disable IPV6RS
-	ifo->options &= ~DHCPCD_IPV6RS;
-
 	if (profile && !have_profile) {
 		free_options(ctx, ifo);
 		errno = ENOENT;
